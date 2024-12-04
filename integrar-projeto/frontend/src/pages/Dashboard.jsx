@@ -15,6 +15,71 @@ function Dashboard() {
     { emoji: '😄', descricao: 'Muito Feliz' }
   ];
 
+
+  if (user?.tipo_usuario === 'professor') {
+    return (
+      <div className="container mx-auto p-6">
+        <h2 className="text-2xl font-bold mb-6">Dashboard Professor</h2>
+        <div className="container mx-auto p-6">
+      <h2 className="text-2xl font-bold mb-6">Dashboard Professor</h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Visão Geral da Turma */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="text-xl font-bold mb-4">Visão Geral da Turma</h3>
+          <div className="space-y-2">
+            <p>Total de Alunos: 25</p>
+            <p>Alunos em Acompanhamento: 5</p>
+            <p>Casos de Atenção: 2</p>
+          </div>
+        </div>
+
+        {/* Atividade dos Grupos */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="text-xl font-bold mb-4">Atividade dos Grupos</h3>
+          <div className="space-y-2">
+            <p>Grupos Ativos: 4</p>
+            <p>Participações na Semana: 15</p>
+            <p>Discussões Ativas: 3</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    );
+  }
+
+  if (user?.tipo_usuario === 'pais') {
+    return (
+      <div className="container mx-auto p-6">
+      <h2 className="text-2xl font-bold mb-6">Dashboard Responsável</h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Progresso do Filho */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="text-xl font-bold mb-4">Progresso do seu Filho</h3>
+          <div className="space-y-2">
+            <p>Tempo de Jogos Hoje: 2h</p>
+            <p>Participação em Grupos: 3 interações</p>
+            <p>Estado Emocional: Estável</p>
+          </div>
+        </div>
+
+        {/* Alertas e Recomendações */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="text-xl font-bold mb-4">Alertas e Recomendações</h3>
+          <div className="space-y-2">
+            <p>Tempo de Jogo: Dentro do limite</p>
+            <p>Interação Social: Melhorando</p>
+            <p>Próxima Atividade Recomendada: Grupo de Discussão</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    );
+  }
+  
+ 
   return (
     <div className="container mx-auto p-6">
       {/* Cabeçalho */}

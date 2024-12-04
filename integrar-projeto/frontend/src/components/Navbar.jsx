@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store/slices/authSlice';
 
 function Navbar() {
@@ -13,41 +12,34 @@ function Navbar() {
    window.location.href = '/login';
  };
 
- 
-
  const getNavItems = (tipo) => {
-   const items = [
-     { path: '/dashboard', label: 'Dashboard' },
-     { path: '/grupos', label: 'Grupos' },
-     { path: '/diario', label: 'Diário' },
-     { path: '/recursos', label: 'Recursos' },
-     { path: '/objetivos', label: 'Objetivos' },
-     { path: '/recompensas', label: 'Recompensas' }
-   ];
-
-   switch (tipo) {
-     case 'professor':
-       return [...items, 
-         { path: '/relatorios', label: 'Relatórios' },
-         { path: '/monitoramento', label: 'Monitoramento' },
-         { path: '/conteudos', label: 'Conteúdos' }
-       ];
+  switch (tipo) {
+    case 'professor':
+      return [
+        { path: '/dashboard', label: 'Dashboard' },
+        { path: '/apoio-professores', label: 'Como Ajudar' },
+        { path: '/monitoramento', label: 'Monitoramento' },
+        { path: '/relatorios', label: 'Relatórios' },
+      ];
    
-     case 'pais':
-       return [...items,
-         { path: '/monitoramento', label: 'Monitoramento' },
-         { path: '/conteudos', label: 'Conteúdos' }
-       ];
-     default:
-       return items;
-   }
- };
+    case 'pais':
+      return [
+        { path: '/dashboard', label: 'Dashboard' },
+        { path: '/apoio-pais', label: 'Como Ajudar' },
+        { path: '/monitoramento', label: 'Monitoramento' },
+      ];
 
- {user?.tipo_usuario === 'pais' && (
-  <NavLink to="/recursos" className={navLinkClass}>
-    Recursos Educativos
-  </NavLink>
-)}
+    default: // aluno
+      return [
+        { path: '/dashboard', label: 'Dashboard' },
+        { path: '/grupos', label: 'Grupos' },
+        { path: '/diario', label: 'Diário' },
+        { path: '/recursos', label: 'Recursos' },
+        { path: '/objetivos', label: 'Objetivos' },
+        { path: '/recompensas', label: 'Recompensas' }
+      ];
+  }
+};
 
  return (
    <nav className="bg-white shadow-lg">

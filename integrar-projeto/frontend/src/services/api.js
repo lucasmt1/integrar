@@ -58,6 +58,11 @@ export const api = createApi({
         method: 'POST',
       }),
     }),
+
+    // Endpoint de conteúdos
+    getConteudos: builder.query({
+      query: () => 'conteudos',
+    }),
   }),
 });
 
@@ -70,4 +75,5 @@ export const {
   useEnviarMensagemMutation,
   useCriarGrupoMutation,
   useEntrarGrupoMutation,
+  useGetConteudosQuery, // Nova exportação
 } = api;
