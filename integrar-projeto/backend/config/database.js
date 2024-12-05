@@ -1,7 +1,10 @@
 // backend/config/database.js
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize(process.env.DATABASE_URL);
+const sequelize = new Sequelize('INTEGRAR', 'postgres', '123', {
+  host: 'localhost',
+  dialect: 'postgres'
+});
 
 sequelize.authenticate()
   .then(() => {
