@@ -17,7 +17,9 @@ const relatorioRoutes = require('./routes/relatorioRoutes');
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: ['https://integrar-backend.onrender.com', 'http://localhost:3000']
+  }));
 app.use(express.json());
 
 // Configurar todas as rotas
