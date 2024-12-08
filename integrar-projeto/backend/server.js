@@ -18,7 +18,12 @@ const app = express();
 
 // Middlewares
 app.use(cors({
-    origin: ['https://integrar-backend.onrender.com', 'http://localhost:3000']
+    origin: [
+      'https://integrar-chi.vercel.app', // seu domínio no Vercel
+      'http://localhost:3000' // para desenvolvimento local
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
   }));
 app.use(express.json());
 
